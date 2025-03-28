@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Butwal Multiple Campus</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f8f8f8;
+        }
+        
+        /* Navbar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            background-color:#1d3557;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-items {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-items li {
+            margin-right: 2rem;
+        }
+        
+        .nav-items a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-items a:hover {
+            color: #e63946; /* Red theme color */
+        }
+        
+        .logo {
+            height: 50px;
+        }
+        
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 500px;
+            overflow: hidden;
+        }
+        
+        .hero img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .hero-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 2rem;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 800px;
+        }
+        
+        .hero-text h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .animated-text {
+            font-size: 1.5rem;
+            overflow: hidden;
+            white-space: nowrap;
+            animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+            border-right: 3px solid #e63946;
+            margin: 0 auto;
+            max-width: fit-content;
+        }
+        
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+        
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: #e63946 }
+        }
+        
+        /* Sections */
+        section {
+            padding: 3rem 5%;
+        }
+        
+        section h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #1d3557; /* Blue theme color */
+        }
+        
+        /* About Section */
+        .about {
+            background-color: #f1faee;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-weight: 100;
+        }
+        
+        
+        /* Courses Section */
+        .courses {
+            background-color: #fff;
+        }
+        
+        .course-form {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 2rem;
+            background-color: #f1faee;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            /* Red theme color */
+            color: white;
+            border: none;
+            /* border-radius: 5px; */
+            cursor: pointer;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background-color 0.3s;
+            align-items: center;
+            justify-content: center;
+
+        }
+        .btn{
+            align-items: center;
+            justify-content: center;
+            margin-top: 20px;
+            background-color: navy
+        }
+        
+        .btn:hover {
+            background-color: #c1121f;
+        }
+        
+        .map-btn {
+            display: inline-block;
+            background: #3498db;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 4px;
+            border: none;
+            cursor: pointer;
+            align-items: center;
+        }
+        
+        .map-btn:hover {
+            background-color: #14253d;
+        }
+        
+        /* Blog Section */
+        .blog {
+            background-color: #f1faee;
+            min-height: 200px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #1d3557; /* Blue theme color */
+            color: white;
+            padding: 3rem 5%;
+        }
+        
+        .testimonials {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+        .testimonial h3 {
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        .testimonial {
+            flex: 1;
+            min-width: 300px;
+            padding: 1.5rem;
+            border-radius: 10px;
+        }
+        .testimonial-container{
+            display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+        }
+        .view{
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 20px;
+
+
+        }     
+
+        .testimonial-red {
+            background-color: #e63946; /* Red theme color */
+        }
+        
+        .testimonial-blue {
+            background-color: #457b9d; /* Lighter blue */
+        }
+        
+        .testimonial p {
+            margin-bottom: 1rem;
+        }
+        
+        .testimonial-author {
+            font-weight: 700;
+            text-align: right;
+        }
+        
+        .footer-bottom {
+            margin-top: 2rem;
+            text-align: center;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <ul class="nav-items">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#courses">Courses</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#blog">Blog</a></li>
+        </ul>
+        <img src="logo1png.png" alt="College Logo" class="logo">
+    </nav>
+    
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <img src="hero.jpg" alt="College Campus">
+        <div class="hero-text">
+            <h1>Butwal Multiple Campus</h1>
+            <div class="animated-text">Shaping Minds, Building Futures</div>
+        </div>
+    </section>
+    
+    <!-- About Section -->
+    <section id="about" class="about">
+        <h2>About Us</h2>
+        <p>Butwal Multiple Campus lies in the heart of Butwal city.It has been providing bachelors level of education since 2068 BS and empowwring students with quality education and help them reach their goal in life.Butwal Multiple Campus is dedicated to providing high-quality education and fostering a supportive learning environment. With state-of-the-art facilities and experienced faculty, we are committed to helping our students achieve their full potential and prepare for successful careers.</p>
+    </section>
+    
+    <!-- Courses Section -->
+    <section id="courses" class="courses">
+        <h2>Our Courses</h2>
+        <form class="course-form">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="course">Course</label>
+                <input type="text" id="course" name="course" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="address">Address</label>
+                <textarea id="address" name="address" rows="3" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="age">Age</label>
+                <input type="number" id="age" name="age" min="16" max="99" required>
+            </div>
+
+            <button type="submit" class="btn">Submit Application</button>
+        </form>
+        <div class="view">
+        <a href="https://maps.app.goo.gl/Kw5baWoUQE9Zj5j67" target="_blank" class="btn map-btn">View Our Location</a>
+    </div>
+    </section>  
+    <!-- Footer -->
+    <footer>
+    <div class="testimonials">
+        <h3>What Parents Say</h3>
+        <div class="testimonial-container">
+            <div class="testimonial testimonial-red">
+                <p>"Butwal Multiple Campus provided me with the skills and knowledge I needed to succeed in my career. The faculty is exceptional and truly cares about student success."</p>
+                <div class="testimonial-author">-Geeta Panthi, CSIT</div>
+            </div>
+            <div class="testimonial testimonial-blue">
+                <p>"My time at Butwal Multiple Campus was transformative. The hands-on learning approach and industry connections helped me secure a job before graduation."</p>
+                <div class="testimonial-author">- Kritan Aryal, BBA</div>
+            </div>
+        </div>
+    </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Butwal Multiple Campus. All Rights Reserved.</p>
+        </div>
+    </footer>
+    <script>
+        // Form elements
+        const form = document.getElementById('courseForm');
+        const nameInput = document.getElementById('name');
+        const courseSelect = document.getElementById('course');
+        const phoneInput = document.getElementById('phone');
+        const addressInput = document.getElementById('address');
+        const ageInput = document.getElementById('age');
+        const successMsg = document.getElementById('successMsg');
+
+        // Error elements
+        const nameError = document.getElementById('nameError');
+        const courseError = document.getElementById('courseError');
+        const phoneError = document.getElementById('phoneError');
+        const addressError = document.getElementById('addressError');
+        const ageError = document.getElementById('ageError');
+
+        // Form validation
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Reset errors
+            resetErrors();
+            
+            // Validate inputs
+            let isValid = true;
+            
+            // Name validation
+            if (!nameInput.value.trim()) {
+                nameError.textContent = 'Name is required';
+                isValid = false;
+            }
+            
+            // Course validation
+            if (!courseSelect.value) {
+                courseError.textContent = 'Please select a course';
+                isValid = false;
+            }
+            
+            // Phone validation
+            if (!phoneInput.value.trim()) {
+                phoneError.textContent = 'Phone number is required';
+                isValid = false;
+            } else if (!/^\d{10}$/.test(phoneInput.value.replace(/\D/g, ''))) {
+                phoneError.textContent = 'Enter a valid 10-digit number';
+                isValid = false;
+            }
+            
+            // Address validation
+            if (!addressInput.value.trim()) {
+                addressError.textContent = 'Address is required';
+                isValid = false;
+            }
+            
+            // Age validation
+            if (!ageInput.value) {
+                ageError.textContent = 'Age is required';
+                isValid = false;
+            } else if (ageInput.value < 16 || ageInput.value > 80) {
+                ageError.textContent = 'Age must be between 16-80';
+                isValid = false;
+            }
+            
+            // If valid, show success message
+            if (isValid) {
+                form.reset();
+                successMsg.style.display = 'block';
+                setTimeout(() => {
+                    successMsg.style.display = 'none';
+                }, 3000);
+            }
+        });
+
+        // Reset all errors
+        function resetErrors() {
+            nameError.textContent = '';
+            courseError.textContent = '';
+            phoneError.textContent = '';
+            addressError.textContent = '';
+            ageError.textContent = '';
+            successMsg.style.display = 'none';
+        }
+
+        // Clear individual errors on input
+        nameInput.addEventListener('input', () => nameError.textContent = '');
+        courseSelect.addEventListener('change', () => courseError.textContent = '');
+        phoneInput.addEventListener('input', () => phoneError.textContent = '');
+        addressInput.addEventListener('input', () => addressError.textContent = '');
+        ageInput.addEventListener('input', () => ageError.textContent = '');
+    </script>
+</body>
+</html>

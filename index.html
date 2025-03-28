@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Butwal Multiple Campus</title>
+    <style>
+        /* Base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        
+        body {
+            background-color: #ffffff;
+            line-height: 1.5;
+            color: #000000;
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        h2 {
+            margin-bottom: 20px;
+        }
+        
+        section {
+            padding: 40px 20px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: #3498db;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 4px;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background: #2980b9;
+        }
+        
+        /* Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            background: white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 50px;
+            margin-right: 10px;
+        }
+        
+        .logo h1 {
+            font-size: 20px;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav li {
+            margin-left: 20px;
+        }
+        
+        nav a:hover {
+            color: #3498db;
+        }
+        
+        /* Hero */
+        .hero {
+            text-align: center;
+            padding: 80px 20px;
+            background-color: #3498db;
+            color: white;
+        }
+        
+        .hero h2 {
+            font-size: 40px;
+            margin-bottom: 15px;
+            text-align:top;
+        }
+        
+        .hero p {
+            font-size: 25px;
+            margin-bottom: 25px;
+        }
+        
+        /* Map */
+        .map {
+            text-align: center;
+        }
+        
+        .map-link {
+            display: inline-block;
+            position: relative;
+            max-width: 600px;
+        } 
+        
+        .map-link img {
+            width: 100%;
+            border-radius: 8px;
+        }
+        
+        .map-link span {
+            display: inline-block;
+            background: #3498db;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 4px;
+            border: none;
+        }
+        
+        /* Courses & Form */
+        .courses {
+            background: #f5f5f5;
+            text-align: center;
+        }
+        
+        form {
+            max-width: 500px;
+            margin: 0 auto;
+            text-align: left;
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 15px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        
+        .form-group textarea {
+            height: 80px;
+        }
+        
+        .error {
+            color: #e74c3c;
+            font-size: 14px;
+            display: block;
+            margin-top: 5px;
+        }
+        
+        .success {
+            background: #2ecc71;
+            color: white;
+            padding: 10px;
+            border-radius: 4px;
+            margin-top: 20px;
+            display: none;
+            max-width: 500px;
+            margin: 20px auto 0;
+        }
+        
+        /* Blog */
+        .blog-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .blog-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            width: 250px;
+        }
+        
+        .blog-card img {
+            width: 100%;
+        }
+        
+        .blog-card h3, 
+        .blog-card p {
+            padding: 0 15px;
+        }
+        
+        .blog-card h3 {
+            margin: 15px 0 10px;
+        }
+        
+        .blog-card p {
+            margin-bottom: 15px;
+            color: #666;
+        }
+        
+        /* About */
+        .about {
+            background: #f9f9f9;
+            text-align: center;
+        }
+        
+        /* Footer */
+        footer {
+            background: #3498db;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+            }
+            
+            .logo {
+                margin-bottom: 15px;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            nav li {
+                margin: 5px 10px;
+            }
+        }
+        /* Testimonials in Footer */
+.testimonials {
+  margin-bottom: 20px;
+  max-width: 800px;
+  margin: 0 auto 20px;
+}
+
+.testimonials h3 {
+  color: #fff;
+  margin-bottom: 15px;
+  font-size: 18px;
+}
+
+.testimonial-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.testimonial {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 15px;
+  border-radius: 5px;
+  flex: 1;
+  min-width: 250px;
+}
+
+.testimonial p {
+  font-style: italic;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.testimonial-author {
+  display: flex;
+  flex-direction: column;
+}
+
+.testimonial-author .name {
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.testimonial-author .relation {
+  font-size: 12px;
+  opacity: 0.8;
+}
+
+@media (max-width: 600px) {
+  .testimonial-container {
+    flex-direction: column;
+  }
+}
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <img src="logo.jpg" alt="Logo">
+            <h1>Butwal Multiple Campus</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#courses">Courses</a></li>
+                <li><a href="#blog">Blog</a></li>
+                <li><a href="#about">About</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero -->
+    <section id="home" class="hero">
+        <h2>Welcome to Butwal Multiple Campus </h2>
+        <img src="bmc.jpg" alt="Hero" width="1500">
+        <p>Empowering minds for a brighter future</p>
+        <a href="#courses" class="btn">View Courses</a>
+        
+    </section>
+
+    <!-- Map -->
+    <section class="map">
+        <h2>Our Location</h2>
+        <a href="https://maps.app.goo.gl/dAJ7pVdFH3h5rqm2A" target="_blank" class="map-link">
+            <span>View on Google Maps</span>
+        </a>
+    </section>
+
+    <!-- Courses -->
+    <section id="courses" class="courses">
+        <h2>Course Registration</h2>
+        <form id="courseForm">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name">
+                <span class="error" id="nameError"></span>
+            </div>
+            
+            <div class="form-group">
+                <label for="course">Course</label>
+                <select id="course">
+                    <option value="">Select Course</option>
+                    <option value="cs">Computer Science</option>
+                    <option value="business">Business</option>
+                    <option value="arts">Arts</option>
+                </select>
+                <span class="error" id="courseError"></span>
+            </div>
+            
+            <div class="form-group">
+                <label for="phone">Phone</label>
+                <input type="tel" id="phone">
+                <span class="error" id="phoneError"></span>
+            </div>
+            
+            <div class="form-group">
+                <label for="address">Address</label>
+                <textarea id="address"></textarea>
+                <span class="error" id="addressError"></span>
+            </div>
+            
+            <div class="form-group">
+                <label for="age">Age</label>
+                <input type="number" id="age">
+                <span class="error" id="ageError"></span>
+            </div>
+            
+            <button type="submit" class="btn">Register</button>
+        </form>
+        <div id="successMsg" class="success">Registration successful!</div>
+    </section>
+
+   
+
+    <!-- About -->
+    <section id="about" class="about">
+        <h2>About Us</h2>
+        <p>Butwal Multiple Campus has been providing quality education since 2068 BS.</p>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <!-- Testimonials in Footer -->
+<div class="testimonials">
+    <h3>What Parents Say</h3>
+    <div class="testimonial-container">
+      <div class="testimonial">
+        <p>"Butwal Multiple Campus  has transformed my daughter's future. The faculty is exceptional and truly cares about student success."</p>
+        <div class="testimonial-author">
+          <span class="name">- Hari Pandey </span>
+          <span class="relation">Parent of Computer Science Student</span>
+        </div>
+      </div>
+      <div class="testimonial">
+        <p>"My son has grown both academically and personally since joining Butwal Multiple Campus. The supportive environment and quality education are outstanding."</p>
+        <div class="testimonial-author">
+          <span class="name">- Kritan Aryal </span>
+          <span class="relation">Guardian of Business Major</span>
+        </div>
+      </div>
+      <div class="testimonial">
+        <p>"My son has completed his gradutaion from BMC and he has grown a outstanding personality along with the remarkable academics all thanks to the teachers of Butwal Multiple Campus."</p>
+        <div class="testimonial-author">
+          <span class="name">- Sita Devi </span>
+          <span class="relation">Guardian of Business Major</span>
+        </div>
+      </div>
+    </div>
+  </div>
+        <p>&copy; 2025 Butwal Multiple Campus. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Form elements
+        const form = document.getElementById('courseForm');
+        const nameInput = document.getElementById('name');
+        const courseSelect = document.getElementById('course');
+        const phoneInput = document.getElementById('phone');
+        const addressInput = document.getElementById('address');
+        const ageInput = document.getElementById('age');
+        const successMsg = document.getElementById('successMsg');
+
+        // Error elements
+        const nameError = document.getElementById('nameError');
+        const courseError = document.getElementById('courseError');
+        const phoneError = document.getElementById('phoneError');
+        const addressError = document.getElementById('addressError');
+        const ageError = document.getElementById('ageError');
+
+        // Form validation
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Reset errors
+            resetErrors();
+            
+            // Validate inputs
+            let isValid = true;
+            
+            // Name validation
+            if (!nameInput.value.trim()) {
+                nameError.textContent = 'Name is required';
+                isValid = false;
+            }
+            
+            // Course validation
+            if (!courseSelect.value) {
+                courseError.textContent = 'Please select a course';
+                isValid = false;
+            }
+            
+            // Phone validation
+            if (!phoneInput.value.trim()) {
+                phoneError.textContent = 'Phone number is required';
+                isValid = false;
+            } else if (!/^\d{10}$/.test(phoneInput.value.replace(/\D/g, ''))) {
+                phoneError.textContent = 'Enter a valid 10-digit number';
+                isValid = false;
+            }
+            
+            // Address validation
+            if (!addressInput.value.trim()) {
+                addressError.textContent = 'Address is required';
+                isValid = false;
+            }
+            
+            // Age validation
+            if (!ageInput.value) {
+                ageError.textContent = 'Age is required';
+                isValid = false;
+            } else if (ageInput.value < 16 || ageInput.value > 80) {
+                ageError.textContent = 'Age must be between 16-80';
+                isValid = false;
+            }
+            
+            // If valid, show success message
+            if (isValid) {
+                form.reset();
+                successMsg.style.display = 'block';
+                setTimeout(() => {
+                    successMsg.style.display = 'none';
+                }, 3000);
+            }
+        });
+
+        // Reset all errors
+        function resetErrors() {
+            nameError.textContent = '';
+            courseError.textContent = '';
+            phoneError.textContent = '';
+            addressError.textContent = '';
+            ageError.textContent = '';
+            successMsg.style.display = 'none';
+        }
+
+        // Clear individual errors on input
+        nameInput.addEventListener('input', () => nameError.textContent = '');
+        courseSelect.addEventListener('change', () => courseError.textContent = '');
+        phoneInput.addEventListener('input', () => phoneError.textContent = '');
+        addressInput.addEventListener('input', () => addressError.textContent = '');
+        ageInput.addEventListener('input', () => ageError.textContent = '');
+    </script>
+</body>
+</html>
